@@ -1,16 +1,17 @@
 <template>
-  <form v-on:submit="handleSubmit">
-    <div class="mb-3">
-      <label class="form-label">Name of Faculty</label>
-      <input type="text" class="form-control" v-model="nameOfFaculty" aria-describedby="Name of Faculty">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Short name of faculty</label>
-      <input type="text" class="form-control" v-model="shortNameOfFaculty">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  <button>CLICK</button>
+  <div class="container py-3">
+    <form v-on:submit="handleSubmit">
+      <div class="mb-3">
+        <label class="form-label">Name of Faculty</label>
+        <input type="text" class="form-control" v-model="nameOfFaculty" aria-describedby="Name of Faculty">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Short name of faculty</label>
+        <input type="text" class="form-control" v-model="shortNameOfFaculty">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </template>
 
 <script>

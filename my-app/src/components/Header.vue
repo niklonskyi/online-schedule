@@ -4,9 +4,9 @@
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Розклад</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Вчителі</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Групи</a></li>
+        <li class="nav-item"><a href="/groups" class="nav-link">Групи</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Дисципліни</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Студенти</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Студенти</a></li>
         <li class="nav-item"><a href="/faculty" class="nav-link">Факультети</a></li>
         <li class="nav-item"><a href="/departments" class="nav-link">Кафедри</a></li>
       </ul>
