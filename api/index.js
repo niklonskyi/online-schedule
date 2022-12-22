@@ -7,6 +7,7 @@ const port = 3000
 const facultyQueries = require('./queries/facultyQueries')
 const departmentQueries = require('./queries/departmentQueries')
 const groupQueries = require('./queries/groupQueries')
+const studentQueries = require('./queries/studentQueries')
 
 app.use(cors({
     origin: '*',
@@ -46,6 +47,12 @@ app.get('/groups/:id', groupQueries.getGroupById)
 app.post('/groups/add', groupQueries.createGroup)
 app.put('/groups/:id', groupQueries.updateGroup)
 app.delete('/groups/:id', groupQueries.deleteGroup)
+
+app.get('/students', studentQueries.getStudents)
+app.get('/students/:id', studentQueries.getStudentById)
+app.post('/students/add', studentQueries.createStudent)
+app.put('/students/:id', studentQueries.updateStudent)
+app.delete('/students/:id', studentQueries.deleteStudent)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

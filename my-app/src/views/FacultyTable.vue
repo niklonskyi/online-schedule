@@ -1,5 +1,5 @@
 <template>
-  <Table value="faculty" :arrayOfValues='this.arrayOfValues' v-bind:headlines="['#', 'Name', 'Short name']"></Table>
+  <Table value="faculty" :deleteRow="deleteRow" :arrayOfValues='this.arrayOfValues' v-bind:headlines="['#', 'Name', 'Short name']"></Table>
 </template>
 <script>
 import axios from "axios";
@@ -22,6 +22,19 @@ export default {
           .get(`http://localhost:3000/faculty`)
           .then(response => {
             this.setArrayOfValues(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+          })
+    },
+
+    deleteRow(evt) {
+      const id = (this.arrayOfValues[evt.target.value].id);
+      axios
+          .delete(`http://localhost:3000/faculty/${id}`)
+          .then(response => {
+            console.log(response);
+            this.$forceUpdate();
           })
           .catch(error => {
             console.log(error);

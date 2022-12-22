@@ -33,26 +33,14 @@ export default {
     return {
     }
   },
-  props: {
-    headlines: Array,
-    arrayOfValues: Array,
-    value: String,
-  },
+  props: [
+    'deleteRow',
+    'headlines',
+    'arrayOfValues',
+    'value',
+    ],
   name: "Table",
   methods: {
-    deleteRow(evt) {
-      const id = (this.arrayOfValues[evt.target.value].id);
-      axios
-          .delete(`http://localhost:3000/${this.value}/${id}`)
-          .then(response => {
-            console.log(response);
-            this.$forceUpdate();
-          })
-          .catch(error => {
-            console.log(error);
-          })
-    },
-
     editRow(evt) {
       const id = (this.arrayOfValues[evt.target.value].id);
       router.push({ name: `${this.value}-edit`, params: { id: id } })

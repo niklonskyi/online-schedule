@@ -1,5 +1,5 @@
 <template>
-  <Table value="departments" :arrayOfValues='this.arrayOfValues' v-bind:headlines="['#', 'Faculty id', 'Name', 'Short name']"></Table>
+  <Table value="departments" :deleteRow="deleteRow" :arrayOfValues='this.arrayOfValues' v-bind:headlines="['#', 'Faculty id', 'Name', 'Short name']"></Table>
 </template>
 
 <script>
@@ -26,6 +26,19 @@ export default {
               const faculty = {id: obj.id, name: obj.name}
               this.faculties.push(faculty)
             }
+          })
+          .catch(error => {
+            console.log(error);
+          })
+    },
+
+    deleteRow(evt) {
+      const id = (this.arrayOfValues[evt.target.value].id);
+      axios
+          .delete(`http://localhost:3000/departments/${id}`)
+          .then(response => {
+            console.log(response);
+            this.$forceUpdate();
           })
           .catch(error => {
             console.log(error);

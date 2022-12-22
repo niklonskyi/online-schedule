@@ -7,6 +7,9 @@ import DepartmentAdd from "../views/DepartmentAdd.vue";
 import DepartmentEdit from "../views/DepartmentEdit.vue";
 import GroupsTable from "../views/GroupsTable.vue";
 import GroupsAdd from "../views/GroupsAdd.vue";
+import GroupsEdit from "../views/GroupsEdit.vue";
+import StudentsTable from "../views/StudentsTable.vue";
+import StudentsAdd from "../views/StudentsAdd.vue";
 
 
 const routes =  [
@@ -51,6 +54,22 @@ const routes =  [
     path: '/groups/add',
     name: 'groups-add',
     component: GroupsAdd,
+  },
+  {
+    path: '/groups/:id',
+    name: 'groups-edit',
+    component: GroupsEdit,
+    props: true,
+  },
+  {
+    path: '/students/',
+    name: 'students',
+    component: StudentsTable,
+  },
+  {
+    path: '/students/add',
+    name: 'students-add',
+    component: StudentsAdd,
   },
   // {
   //   path: "/add",
