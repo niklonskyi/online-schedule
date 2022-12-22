@@ -1,16 +1,16 @@
 <template>
-  <Table value="groups" :deleteRow="deleteRow" :arrayOfValues='this.arrayOfValues' v-bind:headlines="['#', 'Department id', 'Name', 'Course']"></Table>
+  <Table value="departments" :deleteRow="deleteRow" :arrayOfValues='this.arrayOfValues' v-bind:headlines="['#', 'Faculty id', 'Name', 'Short name']"></Table>
 </template>
 
 <script>
-import Table from "../components/Table.vue";
+import Table from "../../components/Table.vue";
 import axios from "axios";
 
 export default {
-  name: "GroupsTable",
+  name: "DepartmentTable",
   data() {
     return {
-      departments: [],
+      faculties: [],
       arrayOfValues: [],
     }
   },
@@ -18,13 +18,13 @@ export default {
     Table,
   },
   methods: {
-    getDepartmentsIds(evt) {
+    getFacultiesIds(evt) {
       axios
-          .get(`http://localhost:3000/departments`)
+          .get(`http://localhost:3000/faculty`)
           .then(response => {
             for (const obj of response.data) {
-              const department = {id: obj.id, name: obj.name}
-              this.departments.push(department)
+              const faculty = {id: obj.id, name: obj.name}
+              this.faculties.push(faculty)
             }
           })
           .catch(error => {
@@ -35,7 +35,7 @@ export default {
     deleteRow(evt) {
       const id = (this.arrayOfValues[evt.target.value].id);
       axios
-          .delete(`http://localhost:3000/groups/${id}`)
+          .delete(`http://localhost:3000/departments/${id}`)
           .then(response => {
             console.log(response);
             this.$forceUpdate();
@@ -47,7 +47,7 @@ export default {
 
     getArrayOfValues(evt) {
       axios
-          .get(`http://localhost:3000/groups`)
+          .get(`http://localhost:3000/departments`)
           .then(response => {
             this.setArrayOfValues(response.data);
           })
@@ -59,9 +59,9 @@ export default {
     setArrayOfValues(newArray) {
       this.arrayOfValues = newArray;
       this.arrayOfValues.map((value) => {
-        this.departments.map((department) => {
-          if (value.department_id === department.id) {
-            value.department_id = department.name;
+        this.faculties.map((faculty) => {
+          if (value.faculty_id === faculty.id) {
+            value.faculty_id = faculty.name;
           }
         })
       })
@@ -71,12 +71,12 @@ export default {
 
   beforeMount() {
     this.getArrayOfValues();
-    this.getDepartmentsIds();
+    this.getFacultiesIds();
   },
 
   updated() {
     this.getArrayOfValues();
-    this.getDepartmentsIds();
+    this.getFacultiesIds();
   }
 }
 </script>

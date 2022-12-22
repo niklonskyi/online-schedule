@@ -16,7 +16,7 @@
 
 <script>
 import axios from "axios";
-import router from "../router/index.js";
+import router from "../../router";
 import {createRouter as $router} from "vue-router/dist/vue-router.mjs";
 
 export default {

@@ -1,15 +1,16 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Faculty from "../views/FacultyTable.vue";
-import FacultyAdd from "../views/FacultyAdd.vue";
-import FacultyEdit from "../views/FacultyEdit.vue";
-import DepartmentTable from "../views/DepartmentTable.vue";
-import DepartmentAdd from "../views/DepartmentAdd.vue";
-import DepartmentEdit from "../views/DepartmentEdit.vue";
-import GroupsTable from "../views/GroupsTable.vue";
-import GroupsAdd from "../views/GroupsAdd.vue";
-import GroupsEdit from "../views/GroupsEdit.vue";
-import StudentsTable from "../views/StudentsTable.vue";
-import StudentsAdd from "../views/StudentsAdd.vue";
+import Faculty from "../views/faculty/FacultyTable.vue";
+import FacultyAdd from "../views/faculty/FacultyAdd.vue";
+import FacultyEdit from "../views/faculty/FacultyEdit.vue";
+import DepartmentTable from "../views/department/DepartmentTable.vue";
+import DepartmentAdd from "../views/department/DepartmentAdd.vue";
+import DepartmentEdit from "../views/department/DepartmentEdit.vue";
+import GroupsTable from "../views/groups/GroupsTable.vue";
+import GroupsAdd from "../views/groups/GroupsAdd.vue";
+import GroupsEdit from "../views/groups/GroupsEdit.vue";
+import StudentsTable from "../views/students/StudentsTable.vue";
+import StudentsAdd from "../views/students/StudentsAdd.vue";
+import StudentsEdit from "../views/students/StudentsEdit.vue";
 
 
 const routes =  [
@@ -70,6 +71,12 @@ const routes =  [
     path: '/students/add',
     name: 'students-add',
     component: StudentsAdd,
+  },
+  {
+    path: '/students/:id',
+    name: 'students-edit',
+    component: StudentsEdit,
+    props: true,
   },
   // {
   //   path: "/add",

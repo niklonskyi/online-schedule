@@ -2,20 +2,20 @@
   <div class="container py-3">
     <form v-on:submit="handleSubmit">
       <div class="mb-3">
-        <label class="form-label">Id of Faculty</label>
-        <select v-model="facultyId">
-          <option v-for="faculty in faculties" :value="faculty.id">
-            {{ faculty.name }}
+        <label class="form-label">Id of Department</label>
+        <select v-model="departmentId">
+          <option v-for="department in departments" :value="department.id">
+            {{ department.name }}
           </option>
         </select>
       </div>
       <div class="mb-3">
-        <label class="form-label">Name of department</label>
-        <input type="text" class="form-control" v-model="nameOfDepartment">
+        <label class="form-label">Name of group</label>
+        <input type="text" class="form-control" v-model="nameOfGroup">
       </div>
       <div class="mb-3">
-        <label class="form-label">Short name of department</label>
-        <input type="text" class="form-control" v-model="shortNameOfDepartment">
+        <label class="form-label">Course</label>
+        <input type="number" class="form-control" min="1" max="5" v-model="course">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -24,23 +24,23 @@
 
 <script>
 import axios from "axios";
-import router from "../router/index.js";
+import router from "../../router";
 import {createRouter as $router} from "vue-router/dist/vue-router.mjs";
 
 export default {
-  name: "DepartmentAdd",
+  name: "GroupsAdd",
   data() {
     return {
-      nameOfDepartment: '',
-      shortNameOfDepartment: '',
-      faculties: [],
-      facultyId: 1,
+      nameOfGroup: '',
+      course: '',
+      departments: [],
+      departmentId: 1,
     }
   },
   methods: {
     handleSubmit(evt) {
       axios
-          .post('http://localhost:3000/departments/add', {faculty_id: this.facultyId, name: this.nameOfDepartment, short_name: this.shortNameOfDepartment})
+          .post('http://localhost:3000/groups/add', {department_id: this.departmentId, name: this.nameOfGroup, course: this.course})
           .then(response => {
             console.log(response)
           })
@@ -51,13 +51,13 @@ export default {
 
     getFacultiesIds(evt) {
       axios
-          .get(`http://localhost:3000/faculty`)
+          .get(`http://localhost:3000/departments`)
           .then(response => {
             for (const obj of response.data) {
-              const faculty = {id: obj.id, name: obj.name}
-              this.faculties.push(faculty)
+              const department = {id: obj.id, name: obj.name}
+              this.departments.push(department)
             }
-            console.log(this.faculties)
+            console.log(this.departments)
           })
           .catch(error => {
             console.log(error);
