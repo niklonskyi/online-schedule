@@ -48,9 +48,8 @@ const updateDepartment = (request, response) => {
     const id = parseInt(request.params.id)
     const { faculty_id, name, short_name } = request.body
 
-    try {
         pool.query(
-            'UPDATE department SET faculty_id = $1 name = $2, short_name = $3 WHERE id = $4',
+            'UPDATE department SET faculty_id = $1, name = $2, short_name = $3 WHERE id = $4',
             [faculty_id, name, short_name, id],
             (error, results) => {
                 if (error) {
@@ -59,12 +58,6 @@ const updateDepartment = (request, response) => {
                 response.status(200).send(`Department modified with ID: ${id}`)
             }
         )
-    }
-
-    catch (error) {
-        console.log(error)
-    }
-
 }
 
 const deleteDepartment = (request, response) => {
