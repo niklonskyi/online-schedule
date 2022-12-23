@@ -8,6 +8,7 @@ const facultyQueries = require('./queries/facultyQueries')
 const departmentQueries = require('./queries/departmentQueries')
 const groupQueries = require('./queries/groupQueries')
 const studentQueries = require('./queries/studentQueries')
+const disciplineQueries = require('./queries/disciplineQueries')
 
 app.use(cors({
     origin: '*',
@@ -53,6 +54,12 @@ app.get('/students/:id', studentQueries.getStudentById)
 app.post('/students/add', studentQueries.createStudent)
 app.put('/students/:id', studentQueries.updateStudent)
 app.delete('/students/:id', studentQueries.deleteStudent)
+
+app.get('/disciplines', disciplineQueries.getDisciplines)
+app.get('/disciplines/:id', disciplineQueries.getDisciplineById)
+app.post('/disciplines/add', disciplineQueries.createDiscipline)
+app.put('/disciplines/:id', disciplineQueries.updateDiscipline)
+app.delete('/disciplines/:id', disciplineQueries.deleteDiscipline)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
