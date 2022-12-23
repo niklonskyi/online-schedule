@@ -6,7 +6,7 @@ import axios from "axios";
 import {ref, onMounted, onBeforeMount} from 'vue'
 import Table from "../../components/Table.vue";
 export default {
-  name: "DepartmentTable",
+  name: "FacultyTable",
   data() {
     return {
       faculties: [],
