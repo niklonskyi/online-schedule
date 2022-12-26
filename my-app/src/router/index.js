@@ -17,6 +17,9 @@ import DisciplinesEdit from "../views/disciplines/DisciplinesEdit.vue";
 import TeachersTable from "../views/teachers/TeachersTable.vue";
 import TeachersAdd from "../views/teachers/TeachersAdd.vue";
 import TeachersEdit from "../views/teachers/TeachersEdit.vue";
+import ScheduleTable from "../views/schedule/ScheduleTable.vue";
+import ScheduleAdd from "../views/schedule/ScheduleAdd.vue";
+import ScheduleEdit from "../views/schedule/ScheduleEdit.vue";
 
 
 const routes =  [
@@ -114,6 +117,22 @@ const routes =  [
     path: "/teachers/:id",
     name: "teachers-edit",
     component: TeachersEdit,
+    props: true,
+  },
+  {
+    path: '/schedule/',
+    name: 'schedule',
+    component: ScheduleTable,
+  },
+  {
+    path: '/schedule/add',
+    name: 'schedule-add',
+    component: ScheduleAdd,
+  },
+  {
+    path: "/schedule/:id",
+    name: "schedule-edit",
+    component: ScheduleEdit,
     props: true,
   },
   // {
