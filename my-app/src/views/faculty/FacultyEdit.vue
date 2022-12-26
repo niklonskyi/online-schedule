@@ -3,11 +3,11 @@
     <form v-on:submit="handleSubmit">
       <div class="mb-3">
         <label class="form-label">Name of Faculty</label>
-        <input type="text" class="form-control" :placeholder="nameOfFaculty" v-model="nameOfFaculty" aria-describedby="Name of Faculty">
+        <input type="text" class="form-control" required maxlength="30" :placeholder="nameOfFaculty" v-model="nameOfFaculty" aria-describedby="Name of Faculty">
       </div>
       <div class="mb-3">
         <label class="form-label">Short name of faculty</label>
-        <input type="text" class="form-control" :placeholder="shortNameOfFaculty" v-model="shortNameOfFaculty">
+        <input type="text" class="form-control" required maxlength="30" :placeholder="shortNameOfFaculty" v-model="shortNameOfFaculty">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

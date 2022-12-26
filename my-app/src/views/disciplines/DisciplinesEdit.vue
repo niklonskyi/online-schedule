@@ -3,7 +3,7 @@
     <form v-on:submit="handleSubmit">
       <div class="mb-3">
         <label class="form-label">Name of Faculty</label>
-        <input type="text" class="form-control" :placeholder="nameOfDiscipline" v-model="nameOfDiscipline" aria-describedby="Name of Faculty">
+        <input type="text" class="form-control" required maxlength="30" :placeholder="nameOfDiscipline" v-model="nameOfDiscipline" aria-describedby="Name of Faculty">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

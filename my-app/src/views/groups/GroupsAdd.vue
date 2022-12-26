@@ -3,7 +3,7 @@
     <form v-on:submit="handleSubmit">
       <div class="mb-3">
         <label class="form-label">Id of Department</label>
-        <select v-model="departmentId">
+        <select v-model="departmentId" required>
           <option v-for="department in departments" :value="department.id">
             {{ department.name }}
           </option>
@@ -11,7 +11,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Name of group</label>
-        <input type="text" class="form-control" v-model="nameOfGroup">
+        <input type="text" class="form-control" required maxlength="30" v-model="nameOfGroup">
       </div>
       <div class="mb-3">
         <label class="form-label">Course</label>

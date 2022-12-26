@@ -3,11 +3,11 @@
     <form v-on:submit="handleSubmit">
       <div class="mb-3">
         <label class="form-label">Name of Schedule</label>
-        <input type="text" class="form-control" v-model="nameOfSchedule">
+        <input type="text" required maxlength="30" class="form-control" v-model="nameOfSchedule">
       </div>
       <div class="mb-3">
         <label class="form-label">Name of Teacher</label>
-        <select v-model="teacherId">
+        <select v-model="teacherId" required>
           <option v-for="teacher in teachers" :value="teacher.id">
             {{ teacher.name }}
           </option>
@@ -15,7 +15,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Name of Discipline</label>
-        <select v-model="disciplineId">
+        <select v-model="disciplineId" required>
           <option v-for="discipline in disciplines" :value="discipline.id">
             {{ discipline.name }}
           </option>
@@ -23,7 +23,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Group</label>
-        <select v-model="groupId">
+        <select v-model="groupId" required>
           <option v-for="group in groups" :value="group.id">
             {{ group.name }}
           </option>
@@ -31,11 +31,11 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Time</label>
-        <input type="time" class="form-control" v-model="time">
+        <input type="time" required class="form-control" v-model="time">
       </div>
       <div class="mb-3">
         <label class="form-label">Classroom</label>
-        <input type="text" class="form-control" v-model="classroom">
+        <input type="text" required maxlength="30" class="form-control" v-model="classroom">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

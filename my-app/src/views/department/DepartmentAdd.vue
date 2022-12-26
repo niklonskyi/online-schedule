@@ -11,11 +11,11 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Name of department</label>
-        <input type="text" class="form-control" v-model="nameOfDepartment">
+        <input type="text" class="form-control" required maxlength="30" v-model="nameOfDepartment">
       </div>
       <div class="mb-3">
         <label class="form-label">Short name of department</label>
-        <input type="text" class="form-control" v-model="shortNameOfDepartment">
+        <input type="text" class="form-control" required maxlength="30" v-model="shortNameOfDepartment">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
